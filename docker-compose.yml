@@ -6,9 +6,18 @@ services:
       POSTGRES_PASSWORD: "postgres"
       POSTGRES_DB: "la_colmena_development"
     volumes:
-      - postgres-data:/var/lib/postgresql
+      - postgres-data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      retries: 5
+
+  redis:
+    image: redis:7
+    ports:
+      - "6379:6379"
 
   web:
     build:
@@ -20,8 +29,24 @@ services:
     ports:
       - "3000:3000"
     depends_on:
-      - db
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_started
+
+  sidekiq:
+    build:
+      context: ./
+      dockerfile: Dockerfile-dev
+    command: bundle exec sidekiq
+    volumes:
+      - .:/la_colmena
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_started
 
 volumes:
   postgres-data:
-  bundle-volume:
+
