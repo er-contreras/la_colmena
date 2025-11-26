@@ -4,7 +4,7 @@ build:
 up:
 	docker compose up -d
 
-setup: create migrate seed up
+setup: create create_test migrate seed up
 
 down:
 	docker compose down -v --remove-orphans
