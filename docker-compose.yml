@@ -14,11 +14,6 @@ services:
       interval: 5s
       retries: 5
 
-  redis:
-    image: redis:7
-    ports:
-      - "6379:6379"
-
   web:
     build:
       context: ./
@@ -31,21 +26,6 @@ services:
     depends_on:
       db:
         condition: service_healthy
-      redis:
-        condition: service_started
-
-  sidekiq:
-    build:
-      context: ./
-      dockerfile: Dockerfile-dev
-    command: bundle exec sidekiq
-    volumes:
-      - .:/la_colmena
-    depends_on:
-      db:
-        condition: service_healthy
-      redis:
-        condition: service_started
 
 volumes:
   postgres-data:
