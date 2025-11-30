@@ -1,4 +1,4 @@
-class Api::V1::SubjectsController < ApplicationController
+class SubjectsController < ApplicationController
   def index
     @subjects = Subject.all
 
@@ -25,6 +25,19 @@ class Api::V1::SubjectsController < ApplicationController
       redirect_to @subject
     else
       render :new
+    end
+  end
+
+  def edit
+    @subject = Subject.find(params[:id])
+  end
+
+  def update
+    @subject = Subject.find(params[:id])
+    if @subject.update(subject_params)
+      redirect_to subjects_path, notice: "Subject updated"
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
