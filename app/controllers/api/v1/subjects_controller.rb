@@ -4,7 +4,10 @@ class Api::V1::SubjectsController < ApplicationController
 
     respond_to do |format|
       format.html { render :index }
-      format.json { render json: subjects, status: :ok }
+      format.json { render json: {
+        subjects: Panko::ArraySerializer.new(subjects, each_serializer: SubjectSerializer).to_a
+        }, status: :ok
+      }
     end
   end
 end
