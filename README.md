@@ -1,25 +1,23 @@
-# La Colmena — Productivity & Learning Tracker API
+# La Colmena — Productivity & Learning Tracker
 *A Rails-powered platform to track subjects, projects, and daily learning progress.*
 
-La Colmena is a monolithic Ruby on Rails application designed to help users organize their subjects, measure learning progress, and track achievements over time. The system exposes a clean, versioned JSON API and is fully deployable using Docker and PostgreSQL.
+La Colmena is a monolithic Ruby on Rails application designed to help users organize their subjects,
+measure learning progress, and track achievements over time. The system is fully deployable using Docker and PostgreSQL.
 
 ---
 
 ## 🚀 Features
-- Versioned JSON API (`/api/v1/...`)
-- Fast JSON serialization using **Panko**
-- Request specs with JSON schema validation
+- Request specs with HTML responses
 - PostgreSQL + Docker Compose setup for local and production environments
 - Deployment-ready for Render.com
-- API-first structure suitable for React, mobile apps, or PWAs
 
 ---
 
 ## 🧱 Tech Stack
-- Ruby on Rails 7
+- Ruby on Rails 8
 - PostgreSQL 14+
 - Panko Serializers
-- RSpec + json_matchers
+- RSpec
 - Docker & Docker Compose
 - Render.com for deployment
 
