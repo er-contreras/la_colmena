@@ -18,7 +18,6 @@ gem "kamal", require: false
 gem "thruster", require: false
 gem "image_processing", "~> 1.2"
 gem "jwt"
-gem "panko_serializer"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
@@ -38,5 +37,4 @@ end
 group :test do
   gem "capybara"
   gem "selenium-webdriver"
-  gem "json_matchers"
 end

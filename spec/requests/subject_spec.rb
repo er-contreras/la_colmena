@@ -15,13 +15,7 @@ Rails.describe "Subjects", type: :request do
     it "return a list of subjects" do
       get "/subjects", as: :json
 
-      expect(json_response["subjects"].count).to eq(5)
-    end
-
-    it "returns subjects in correct schema" do
-      get "/subjects", as: :json
-
-      expect(json_response).to match_json_schema("subjects/index")
+      expect(json_response.count).to eq(5)
     end
   end
 end
