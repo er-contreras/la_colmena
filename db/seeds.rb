@@ -7,3 +7,16 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+subjects = [
+  "Ruby on Rails",
+  "PostgreSQL",
+  "Docker",
+  "Linux System Programming",
+  "Data Structures",
+  "Compiler Design"
+]
+
+subjects.each do |title|
+  Subject.find_or_create_by!(title: title)
+end
