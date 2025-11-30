@@ -2,6 +2,7 @@ FROM ruby:3.4.7
 RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
 WORKDIR /la_colmena
 COPY Gemfile /la_colmena/Gemfile
+COPY Gemfile.lock /la_colmena/Gemfile.lock
 RUN bundle install
 
 # Add a script to be executed every time the container starts.
