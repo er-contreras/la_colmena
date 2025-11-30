@@ -1,1 +1,12 @@
-<h1>Hello world</h1>
+<h1>Subjects</h1>
+
+<ul>
+  <% @subjects.each do |subject| %>
+    <li>
+      <%= link_to subject.title, api_v1_subject_path(subject) %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "New Subject", new_api_v1_subject_path, class: "btn" %>
+
