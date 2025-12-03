@@ -1,8 +1,16 @@
+Important! - Still in development, most of the code is on my computer
+this is the first deployment
+
 # La Colmena — Productivity & Learning Tracker
 *A Rails-powered platform to track subjects, projects, and daily learning progress.*
 
 La Colmena is a monolithic Ruby on Rails application designed to help users organize their subjects,
 measure learning progress, and track achievements over time. The system is fully deployable using Docker and PostgreSQL.
+
+---
+
+## Live
+- https://la-colmena.onrender.com/
 
 ---
 
@@ -23,6 +31,11 @@ measure learning progress, and track achievements over time. The system is fully
 
 ---
 
+## Gems
+- https://github.com/rails/cssbundling-rails
+
+---
+
 ## 📦 Installation
 
 ### Prerequisites
@@ -33,4 +46,7 @@ measure learning progress, and track achievements over time. The system is fully
 ```bash
 git clone https://github.com/yourusername/la_colmena.git
 cd la_colmena
+
+sudo make setup
+sudo docker compose run --rm web yarn build:css
 
