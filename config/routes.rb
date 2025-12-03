@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  resources :subjects
+  resources :subjects do
+    patch :toggle_complete, on: :member
+  end
 
   root "subjects#index"
 end

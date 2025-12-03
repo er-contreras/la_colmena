@@ -9,6 +9,8 @@
  * Consider organizing styles into separate files for maintainability.
  */
 
+@use "components/turbo_progress_bar";
+
 // Mixins
 @use "mixins/media";
 
