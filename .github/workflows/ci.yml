@@ -105,7 +105,10 @@ jobs:
         run: curl -fsSL https://bun.sh/install | bash
 
       - name: Add Bun to PATH
-        run: echo "$HOME/.bun/bin" >> $GITHUB_PATH
+        run: |
+          echo "$HOME/.bun/bin" >> $GITHUB_PATH
+          export PATH="$HOME/.bun/bin:$PATH"
+          bun --version
 
       - name: Run tests
         env:
