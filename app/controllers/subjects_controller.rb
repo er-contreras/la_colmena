@@ -1,14 +1,11 @@
 class SubjectsController < ApplicationController
+  before_action :set_subject, only: [ :show, :edit, :update, :destroy, :toggle_complete ]
+
   def index
     @subjects = Subject.all
-
-    respond_to do |format|
-      format.html { render :index }
-    end
   end
 
   def show
-    @subject = Subject.find(params[:id])
   end
 
   def new
@@ -17,19 +14,18 @@ class SubjectsController < ApplicationController
 
   def create
     @subject = Subject.new(subject_params)
+
     if @subject.save
-      redirect_to @subject
+      redirect_to subjects_path, notice: "Subject has been successfully created."
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
   def edit
-    @subject = Subject.find(params[:id])
   end
 
   def update
-    @subject = Subject.find(params[:id])
     if @subject.update(subject_params)
       redirect_to subjects_path, notice: "Subject updated"
     else
@@ -37,7 +33,27 @@ class SubjectsController < ApplicationController
     end
   end
 
+  def destroy
+    @subject.destroy
+
+    redirect_to subjects_path, notice: "Subject was successfully destroyed."
+  end
+
+  def toggle_complete
+    @subject.toggle_completed!
+
+    respond_to do |format|
+      # format.turbo_stream
+      # format.turbo_stream { render turbo_stream: turbo_stream.prepend("subjects", partial: "subject") }
+      # format.html { redirect_to subjects_path, notice: "Subject updated!" }
+    end
+  end
+
   private
+
+  def set_subject
+    @subject = Subject.find(params[:id])
+  end
 
   def subject_params
     params.require(:subject).permit(:title)

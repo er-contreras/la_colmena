@@ -1,8 +1,9 @@
-<h1>Edit Subject</h1>
+<main class="container">
+  <%= link_to sanitize("&larr; Back to quote"), subject_path(@subject) %>
 
-<%= render "form", subject: @subject %>
+  <div class="header">
+    <h1>Edit subject</h1>
+  </div>
 
-<div style="margin-top: 1rem;">
-  <%= link_to "Back to subjects", subjects_path %>
-</div>
-
+  <%= render "form", subject: @subject %>
+</main>
