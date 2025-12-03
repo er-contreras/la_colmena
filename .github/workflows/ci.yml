@@ -101,6 +101,12 @@ jobs:
         with:
           node-version: 20
 
+      - name: Install Bun (JS runtime)
+        run: curl -fsSL https://bun.sh/install | bash
+
+      - name: Add Bun to PATH
+        run: echo "$HOME/.bun/bin" >> $GITHUB_PATH
+
       - name: Run tests
         env:
           RAILS_ENV: test
@@ -144,6 +150,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+
+      - name: Install Bun (JS runtime)
+        run: curl -fsSL https://bun.sh/install | bash
+
+      - name: Add Bun to PATH
+        run: echo "$HOME/.bun/bin" >> $GITHUB_PATH
 
       - name: Run System Tests
         env:
