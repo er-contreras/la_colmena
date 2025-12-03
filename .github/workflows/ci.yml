@@ -101,14 +101,14 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install Bun (JS runtime)
-        run: curl -fsSL https://bun.sh/install | bash
-
-      - name: Add Bun to PATH
+      - name: Enable Corepack and activate Yarn
         run: |
-          echo "$HOME/.bun/bin" >> $GITHUB_PATH
-          export PATH="$HOME/.bun/bin:$PATH"
-          bun --version
+         corepack enable
+         corepack prepare yarn@stable --activate
+         yarn --version
+
+      - name: Install JS dependencies
+        run: yarn install
 
       - name: Run tests
         env:
