@@ -1,4 +1,4 @@
-Important! - Still in development, most of the code is on my computer
+⚠️Important! - Still in development, most of the code is on my computer
 this is the first deployment
 
 # La Colmena — Productivity & Learning Tracker
@@ -22,12 +22,14 @@ measure learning progress, and track achievements over time. The system is fully
 ---
 
 ## 🧱 Tech Stack
-- Ruby on Rails 8
+- Ruby 3.4.7
+- Ruby on Rails 8.1
 - PostgreSQL 14+
-- Panko Serializers
 - RSpec
 - Docker & Docker Compose
+- Makefile
 - Render.com for deployment
+- SCSS/SASS
 
 ---
 
