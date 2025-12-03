@@ -96,6 +96,11 @@ jobs:
         with:
           bundler-cache: true
 
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
       - name: Run tests
         env:
           RAILS_ENV: test
@@ -134,6 +139,11 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
 
       - name: Run System Tests
         env:
