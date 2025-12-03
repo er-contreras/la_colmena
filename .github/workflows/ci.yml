@@ -108,8 +108,8 @@ jobs:
          corepack prepare yarn@stable --activate
          yarn --version
 
-      - name: Install JS dependencies
-        run: yarn install
+      - name: Install yarn dependencies
+        run: yarn install --frozen-lockfile
 
       - name: Build CSS for tests
         run: yarn build:css
