@@ -1,4 +1,11 @@
-<h1>New Subject</h1>
+<main class="container">
+  <%= link_to sanitize("&larr; Back to subjects"), subjects_path %>
 
-<%= render "form", subject: @subject %>
+  <div class="header">
+    <h1>New subject</h1>
+  </div>
 
+  <%= turbo_frame_tag "first_turbo_frame" do %>
+    <%= render "form", subject: @subject %>
+  <% end %>
+</main>

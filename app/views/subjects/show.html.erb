@@ -1,5 +1,8 @@
-<h1><%= @subject.title %></h1>
-
-<%= link_to "Edit", edit_subject_path(@subject) %> |
-<%= link_to "Back", subjects_path %>
-
+<main class="container">
+  <%= link_to sanitize("&larr; Back to subjects"), subjects_path %>
+  <div class="header">
+    <h1>
+      <%= @subject.title %>
+    </h1>
+  </div>
+</main>

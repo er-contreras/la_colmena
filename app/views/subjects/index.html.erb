@@ -1,12 +1,12 @@
-<h1>Subjects</h1>
-
-<ul>
-  <% @subjects.each do |subject| %>
-    <li>
-      <%= link_to subject.title, subject_path(subject) %>
-    </li>
+<main class="container">
+  <%= turbo_frame_tag "first_turbo_frame" do %>
+    <div class="header">
+      <h1>Subjects</h1>
+      <%= link_to "New subject",
+                  new_subject_path,
+                  class: "btn btn--primary" %>
+    </div>
   <% end %>
-</ul>
 
-<%= link_to "New Subject", new_subject_path, class: "btn" %>
-
+  <%= render @subjects %>
+</main>

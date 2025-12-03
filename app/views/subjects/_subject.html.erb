@@ -1,0 +1,12 @@
+<div class="subject">
+  <%= link_to subject.title, subject_path(subject) %>
+  <div class="subject__actions">
+    <%= button_to "Delete",
+                  subject_path(subject),
+                  method: :delete,
+                  class: "btn btn--light" %>
+    <%= link_to "Edit",
+                edit_subject_path(subject),
+                class: "btn btn--light" %>
+  </div>
+</div>

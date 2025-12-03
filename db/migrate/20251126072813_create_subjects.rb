@@ -1,7 +1,8 @@
 class CreateSubjects < ActiveRecord::Migration[8.1]
   def change
     create_table :subjects do |t|
-      t.string :title
+      t.string :title, null: false
+      t.boolean :completed, default: false, null: false
 
       t.timestamps
     end
