@@ -51,4 +51,12 @@ cd la_colmena
 
 sudo make setup
 sudo docker compose run --rm web yarn build:css
+```
 
+## ⭐ Y aquí está lo más importante:
+- 🔴 Render.com sí instala Node
+- 🔴 Tu Dockerfile-prod no necesita Node (porque ya traes assets precompilados)
+- 🔴 Tu Dockerfile-dev no tiene nada que ver con GitHub Actions
+- 🔴 La Pull Request falla antes de hacer deploy
+
+👉 El único lugar donde falta Node es en GitHub Actions.
