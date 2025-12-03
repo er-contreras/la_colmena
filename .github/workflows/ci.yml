@@ -100,8 +100,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: yarn
 
-      - name: Enable Corepack and activate Yarn
+      - name: Install Yarn
         run: |
          corepack enable
          corepack prepare yarn@stable --activate
@@ -109,6 +110,9 @@ jobs:
 
       - name: Install JS dependencies
         run: yarn install
+
+      - name: Build CSS for tests
+        run: yarn build:css
 
       - name: Run tests
         env:
