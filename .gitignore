@@ -4,14 +4,6 @@
 # belong in git's global ignore instead:
 # `$XDG_CONFIG_HOME/git/ignore` or `~/.config/git/ignore`
 
-.pnp.cjs
-.pnp.loader.mjs
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/sdks
-
 # Ignore bundler config.
 /.bundle
 
