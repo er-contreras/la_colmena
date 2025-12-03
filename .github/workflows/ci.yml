@@ -109,7 +109,7 @@ jobs:
          yarn --version
 
       - name: Install yarn dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
 
       - name: Build CSS for tests
         run: yarn build:css
