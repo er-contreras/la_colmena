@@ -1,6 +1,3 @@
-⚠️Important! - Still in development, most of the code is on my computer
-this is the first deployment
-
 # La Colmena — Productivity & Learning Tracker
 *A Rails-powered platform to track subjects, projects, and daily learning progress.*
 
@@ -9,7 +6,8 @@ measure learning progress, and track achievements over time. The system is fully
 
 ---
 
-## Live
+## 🔴 Live
+* It take a while before the server ups, so be patience and wait a minute.
 - https://la-colmena.onrender.com/
 
 ---
@@ -33,7 +31,7 @@ measure learning progress, and track achievements over time. The system is fully
 
 ---
 
-## Gems
+## Extra Gems
 - https://github.com/rails/cssbundling-rails
 
 ---
@@ -52,11 +50,3 @@ cd la_colmena
 sudo make setup
 sudo docker compose run --rm web yarn build:css
 ```
-
-## ⭐ Y aquí está lo más importante:
-- 🔴 Render.com sí instala Node
-- 🔴 Tu Dockerfile-prod no necesita Node (porque ya traes assets precompilados)
-- 🔴 Tu Dockerfile-dev no tiene nada que ver con GitHub Actions
-- 🔴 La Pull Request falla antes de hacer deploy
-
-👉 El único lugar donde falta Node es en GitHub Actions.
