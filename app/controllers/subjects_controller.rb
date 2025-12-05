@@ -2,7 +2,7 @@ class SubjectsController < ApplicationController
   before_action :set_subject, only: [ :show, :edit, :update, :destroy, :toggle_complete ]
 
   def index
-    @subjects = Subject.all
+    @subjects = Subject.ordered
   end
 
   def show
