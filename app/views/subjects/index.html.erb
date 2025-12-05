@@ -1,12 +1,15 @@
 <main class="container">
-  <%= turbo_frame_tag "first_turbo_frame" do %>
-    <div class="header">
-      <h1>Subjects</h1>
-      <%= link_to "New subject",
-                  new_subject_path,
-                  class: "btn btn--primary" %>
-    </div>
-  <% end %>
+  <div class="header">
+    <h1>Subjects</h1>
+    <%= link_to "New subject",
+                new_subject_path,
+                class: "btn btn--primary",
+                data: { turbo_frame: dom_id(Subject.new) } %>
+  </div>
 
-  <%= render @subjects %>
+  <%= turbo_frame_tag Subject.new %>
+
+  <%= turbo_frame_tag "subjects" do %>
+    <%= render @subjects %>
+  <% end %>
 </main>

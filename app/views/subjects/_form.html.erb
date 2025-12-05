@@ -1,11 +1,18 @@
-<%= form_with model: @subject do |f| %>
+<%= form_with(model: @subject, html: { class: "subject form" }) do |f| %>
+  <% if subject.errors.any? %>
+    <div class="error-message">
+      <%= subject.errors.full_messages.to_sentence.capitalize %>
+    </div>
+  <% end %>
+
   <div>
     <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
 
   <div>
-    <%= f.submit %>
+    <%= link_to "Cancel", subjects_path, class: "btn btn--light" %>
+    <%= f.submit class: "btn btn--secondary" %>
   </div>
 <% end %>
 

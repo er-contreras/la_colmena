@@ -2,7 +2,7 @@ class SubjectsController < ApplicationController
   before_action :set_subject, only: [ :show, :edit, :update, :destroy, :toggle_complete ]
 
   def index
-    @subjects = Subject.all
+    @subjects = Subject.ordered
   end
 
   def show
@@ -16,7 +16,10 @@ class SubjectsController < ApplicationController
     @subject = Subject.new(subject_params)
 
     if @subject.save
-      redirect_to subjects_path, notice: "Subject has been successfully created."
+      respond_to do |format|
+        format.html { redirect_to subjects_path, notice: "Subject has been successfully created." }
+        format.turbo_stream
+      end
     else
       render :new, status: :unprocessable_entity
     end
@@ -36,7 +39,10 @@ class SubjectsController < ApplicationController
   def destroy
     @subject.destroy
 
-    redirect_to subjects_path, notice: "Subject was successfully destroyed."
+    respond_to do |format|
+      format.html { redirect_to subjects_path, notice: "Subject was successfully destroyed." }
+      format.turbo_stream
+    end
   end
 
   def toggle_complete
