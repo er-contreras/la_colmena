@@ -50,3 +50,11 @@ cd la_colmena
 sudo make setup
 sudo docker compose run --rm web yarn build:css
 ```
+if ```sudo docker compose run --rm web yarn build:css``` failed, try the following:
+```
+sudo docker compose run --rm web bash
+yarn install
+yarn build:css
+exit
+```
+
